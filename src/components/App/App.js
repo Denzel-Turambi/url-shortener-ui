@@ -14,11 +14,15 @@ function App () {
 
   console.log(urls)
 
+  function addUrl(newUrl) {
+    setUrls([...urls, newUrl])
+  }
+
   return (
     <main className="App">
       <header>
         <h1>URL Shortener</h1>
-        <UrlForm />
+        <UrlForm addUrl={addUrl}/>
       </header>
 
       <UrlContainer urls={urls}/>
