@@ -31,6 +31,7 @@ describe('dashboard', () => {
     cy.get('button').click().wait('@post')
     cy.get('section > :nth-child(2)').should('be.visible')
     cy.get('section > :nth-child(2)').contains('h3', 'Big Cat').should('be.visible')
+    cy.get('section > :nth-child(2)').contains('a', 'http://localhost:3001/useshorturl/2').should('be.visible')
     cy.get('section > :nth-child(2)').contains('p', 'https://as2.ftcdn.net/v2/jpg/05/72/82/85/1000_F_572828530_ofzCYowQVnlOwkcoBJnZqT36klbJzWdn.jpg').should('be.visible')
   })
 })
