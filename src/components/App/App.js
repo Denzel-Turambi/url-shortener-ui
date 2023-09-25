@@ -1,11 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import { getUrls } from '../../apiCalls';
+import { getUrls, postUrls } from '../../apiCalls';
 import UrlContainer from '../UrlContainer/UrlContainer';
 import UrlForm from '../UrlForm/UrlForm';
 
 function App () {
   const [urls, setUrls] = useState([]);
+  // const [postUrl, setPostUrl] = useState({})
+
+  function addUrl(newUrl) {
+    // setPostUrl(newUrl)
+    // const newUrlObj = {id: newUrl.id, title: newUrl.title, short_url: newUrl.short_url, long_url: newUrl.long_url}
+    // postUrls(postUrl).then(data => {
+    //   setUrls([...urls, postUrl])
+    // })
+    postUrls(newUrl)
+    setUrls([...urls, newUrl])
+  }
 
   useEffect(() => {
     getUrls()
@@ -13,10 +24,6 @@ function App () {
   }, [])
 
   console.log(urls)
-
-  function addUrl(newUrl) {
-    setUrls([...urls, newUrl])
-  }
 
   return (
     <main className="App">
